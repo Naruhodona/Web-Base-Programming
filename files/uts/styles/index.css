@@ -1,0 +1,43 @@
+body{
+  margin: 0;
+  font-family: Calibri;
+}
+
+form {
+  width: 500px;
+  margin: 0 auto;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+form input[type='text'], form input[type='password']{
+  display: block;
+  width: 100%;
+  padding: 10px;  
+  border-radius: 5px;
+  border: none;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  font-size: 16px;
+}
+
+form input[type="submit"] {
+  background-color: lightseagreen;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+table tr td{
+  padding: 5px;
+}
+
+form a{
+  color: black;
+  font-size: 25px;
+}

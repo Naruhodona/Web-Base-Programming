@@ -1,0 +1,130 @@
+body {
+	margin: 0;
+	font-family: Calibri;
+  }
+  
+.header {
+	background-color: rgb(91, 157, 218);
+	display: flex;
+	position: sticky;
+	width: 100%;
+	top: 0;
+	justify-content: space-between;
+}
+
+.nav {
+	font-family: calibri;
+	font-size: 24px;
+	margin: 0;
+	padding-left: 10px;
+	padding-right: 10px;
+	display: inline-block;
+	float: right;
+}
+
+.logo {
+	display: inline-block;
+	float: left;
+}
+
+.nav a div {
+	display: inline-block;
+	padding: 45px 50px;
+	text-decoration: none;
+	color: white;
+	text-align: center;
+}
+
+.nav a:hover div {
+	color: black;
+}
+
+.komoditas{
+	margin-right: 25px;
+	margin-left: 25px;
+}
+
+.komoditas a {
+	text-decoration: none;
+	color: black;
+}
+
+.list-komoditas {
+	border-radius: 8px;
+	box-shadow: 0px 10px 20px rgba(91, 157, 218, 0.5);
+	margin-bottom: 50px;
+	display: grid;
+	grid-template-columns: 20% 80%;
+}
+
+.img-komoditas {
+	text-align: center;
+}
+
+.desc-komoditas {
+	padding: 10px;
+	font-size: 18px;
+	display: flex;
+	align-items: center;
+}
+
+.cheapest{
+	font-size: 30px;
+	font-weight: bold;
+}
+
+.table-komoditas{
+	width: 100%;
+	text-align: center;
+	grid-column: span 2;
+	padding-bottom: 10px;
+}
+
+table {
+  border-collapse: collapse;
+  margin: 0 auto;
+  margin-top: 30px;
+  width: 50%;
+}
+
+th {
+  background-color: #0074D9;
+  color: white;
+  height: 40px;
+  text-align: center;
+  font-weight: bold;
+}
+
+td {
+  text-align: center;
+  height: 30px;
+}
+
+.footer {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	bottom: 0;
+	margin-top: 10px;
+	width: 100%;
+	background-color: rgb(62, 81, 98);
+	font-size: 20px;
+	color: white;
+}
+
+.para-footer {
+	padding: 10px;
+	float: right;
+}
+
+.soc-med {
+	padding: 10px;
+}
+
+.fa {
+	margin: 0 10px;
+	font-size: 20px;
+	text-decoration: none;
+	color: white;
+}
+  

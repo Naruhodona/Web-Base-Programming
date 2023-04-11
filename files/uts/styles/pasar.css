@@ -1,0 +1,87 @@
+body {
+	margin: 0;
+	font-family: Calibri;
+}
+
+.header {
+	background-color: rgb(91, 157, 218);
+	display: flex;
+	position: sticky;
+	width: 100%;
+	top: 0;
+	justify-content: space-between;
+}
+
+.nav {
+	font-family: calibri;
+	font-size: 24px;
+	margin: 0;
+	padding-left: 10px;
+	padding-right: 10px;
+	display: inline-block;
+	float: right;
+}
+
+.logo {
+	display: inline-block;
+	float: left;
+}
+
+.nav a div {
+	display: inline-block;
+	padding: 45px 50px;
+	text-decoration: none;
+	color: rgb(255, 255, 255);
+	text-align: center;
+}
+
+.nav a:hover div {
+	color: rgb(255, 255, 255);
+}
+
+.pasar {
+	display: grid;
+	grid-template-columns: 25% 25% 25% 25%;
+	margin-bottom: 30px;
+}
+
+.pasar a {
+	text-decoration: none;
+	color: black;
+}
+
+.list-pasar {
+	text-align: center;
+	border-radius: 8px;
+	box-shadow: 0px 10px 20px rgba(91, 157, 218, 0.5);
+	margin: 20px;
+	padding: 20px;
+}
+
+.footer {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	bottom: 0;
+	margin-top: 10px;
+	width: 100%;
+	background-color: rgb(62, 81, 98);
+	font-size: 20px;
+	color: white;
+}
+
+.para-footer {
+	padding: 10px;
+	float: right;
+}
+
+.soc-med {
+	padding: 10px;
+}
+
+.fa {
+	margin: 0 10px;
+	font-size: 20px;
+	text-decoration: none;
+	color: white;
+}
