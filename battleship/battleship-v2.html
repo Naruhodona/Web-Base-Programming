@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Battleship</title>
+        <script src="battleship-v2.js"></script>
+        <script src="jquery-3.6.4.js"></script>
+        <style>
+            body {
+                background-color: black;
+                font-family: "Consolas";
+            }
+            div#board {
+                position: relative;
+                width: 1024px;
+                height: 863px;
+                margin: auto;
+                background: url("images/board.jpg") no-repeat;
+            }
+            #messageArea1{
+                top: 0;
+                left: 0;
+                color: black;
+                background-color: rgb(83, 175, 19);
+            }
+            #messageArea2{
+                top: 0;
+                right: 0;
+                color: black;
+                background-color: rgb(83, 175, 19);
+            }
+            #turns{
+                top: 0;
+                background-color: rgb(83, 175, 19);
+                color: black;
+            }
+            table {
+                position: relative;
+                left: 173px;
+                top: 98px;
+                border-spacing: 0px;
+            }
+            td {
+                width: 94px;
+                height: 94px;
+            }
+            #player1 {
+                padding: 10px;
+                color: rgb(83, 175, 19);
+            }
+            #player2 {
+                padding: 10px;
+                color: rgb(83, 175, 19);
+            }
+            form input {
+                background-color: rgb(152, 207, 113);
+                border-color: rgb(83, 175, 19);
+                font-size: 1em;
+            }
+            .hit {
+                background: url("images/ship.png") no-repeat center center;
+            }
+            .miss {
+                background: url("images/miss.png") no-repeat center center;
+            }
+            .special-hit{
+                background: url("images/ship.png") no-repeat center center;
+            }
+            .special-hit div{
+                background-color: black; 
+                border-radius: 50%; 
+                width: 10px; 
+                height: 10px; 
+            }
+            .texts{
+                display: flex;
+                justify-content: space-evenly;
+            }
+            #sets{
+                display: flex;
+                flex-direction: row;
+                justify-content: space-around;
+                width: 200px;
+            }
+
+            #interacts{
+                position: relative;
+                top: 146px;
+                display: flex;
+                justify-content: space-between;               
+            }
+
+            #textwin{
+                text-align: center;
+                display: flex;
+                flex-direction: column;
+                background-color: rgb(83, 175, 19);
+            }
+            .settings-button{
+                background-color: rgb(83, 175, 19);
+                font-family: "Consolas";
+                color: black;
+                padding: 16px 20px;
+                border: none;
+                cursor: pointer;
+                width: 280px;
+            }
+            .footer{
+                width: 100%;
+                text-align: center;
+            }
+            .form-settings{
+                max-width: 300px;
+                padding: 10px;
+                background-color: rgb(83, 175, 19);
+            }
+            #settings {
+                position: fixed;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%,-50%);
+                border: 3px solid rgb(83, 120, 19);
+                display: none;
+            }
+            #popup-settings{
+                display: none;
+                position: fixed;
+                text-align: center;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-color: rgba(0,0,0,0.5);
+                
+            }
+            #popup-endgame{
+                display: none;
+                position:fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-color: rgba(0,0,0,0.5);
+            }
+            #endgame{
+                position: fixed;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%,-50%);
+                border: 3px solid rgb(83, 120, 19);
+                display: none;
+            }
+            #text-endgame{
+                text-align: center;
+                background-color: rgb(83, 175, 19);
+            }
+            #popup-start{
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-color: rgba(0,0,0,0.5);
+                z-index: 9999;
+            }
+            #start{
+                position: fixed;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%,-50%);
+                border: 3px solid rgb(83, 120, 19);
+
+            }
+            .form-start{
+                max-width: 500px;
+                padding: 10px;
+                background-color: rgb(83, 175, 19);
+            }
+            .btn-start{
+                background-color: rgb(83, 120, 19);
+                font-family: "Consolas";
+                cursor: pointer;
+                border: none;
+                padding: 16px 20px;
+                color: black;
+                width: 280px;
+                position: relative;
+                left: 50px;
+            }
+            .hof-button{
+                background-color: rgb(83, 175, 19);
+                font-family: "Consolas";
+                color: black;
+                padding: 16px 20px;
+                border: none;
+                cursor: pointer;
+                width: 280px;
+            }
+            #popup-hof{
+                display: none;
+                position:fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-color: rgba(0,0,0,0.5);
+            }
+            #hof{
+                position: fixed;
+                top: 50%;
+                left: 50%;
+                width: 400px;
+                transform: translate(-50%,-50%);
+                border: 3px solid rgb(83, 120, 19);
+                background-color: rgb(83, 175, 19);
+                text-align: center;
+                display: none;
+            }
+            #hall-of-fame{
+                position: relative;
+                top: 0;
+                left: 0;
+                
+            }
+            .btn-end{
+                background-color: rgb(83, 120, 19);
+                font-family: "Consolas";
+                cursor: pointer;
+                border: none;
+                padding: 16px 20px;
+                color: black;
+                width: 280px;
+            }
+            #text-winner{
+                padding:10px;
+            }
+            .close-hof-button{
+                background-color: rgb(83, 120, 19);
+                font-family: "Consolas";
+                cursor: pointer;
+                border: none;
+                padding: 16px 20px;
+                color: black;
+                width: 280px;
+
+            }
+            .btn-cancel{
+                background-color: rgb(83, 120, 19);
+                font-family: "Consolas";
+                cursor: pointer;
+                border: none;
+                padding: 16px 20px;
+                color: black;
+                
+                margin: 10px;
+            }
+            .btn-confirm{
+                background-color: rgb(83, 120, 19);
+                font-family: "Consolas";
+                cursor: pointer;
+                border: none;
+                padding: 16px 20px;
+                color: black;
+                margin: 10px;
+            }
+
+            #hall-of-fame th, #hall-of-fame td{
+                border-width: 1;
+                border-color: black;
+                border-style: solid;
+                gap: 0px;
+            }
+            #num-ships, #num-sets{
+                border: none;
+                padding: 10px 20px;
+                margin: 0;
+                width: 50%;
+                font-family: "Consolas";
+                background-color: rgb(152, 207, 113);
+            }
+        </style>
+    </head>
+    <body>
+        <div id="popup-start">
+            <div id="start">
+                <form class="form-start">
+                    <h1>Fill your name</h1>
+                    <label>Username Player 1 : </label>
+                    <input type="text" id="userplayer1">
+                    <br>
+                    <br>
+                    <label>Username Player 2 : </label>
+                    <input type="text" id="userplayer2">
+                    <br>
+                    <br>
+                    <button type="button" class="btn-start" onclick="startGame()">Start</button>
+                </form>
+            </div>
+        </div>
+        <div class="texts">
+            <div id="messageArea1"> 
+            </div>
+            <div id="turns">
+            </div>
+            <div id="messageArea2">   
+            </div>
+        </div>
+        <div id="board">
+            <table id="gameboard">
+                <tr>
+                    <td id="00"><div></div></td>
+                    <td id="01"><div></div></td>
+                    <td id="02"><div></div></td>
+                    <td id="03"><div></div></td>
+                    <td id="04"><div></div></td>
+                    <td id="05"><div></div></td>
+                    <td id="06"><div></div></td>
+                </tr>
+                <tr>
+                    <td id="10"><div></div></td>
+                    <td id="11"><div></div></td>
+                    <td id="12"><div></div></td>
+                    <td id="13"><div></div></td>
+                    <td id="14"><div></div></td>
+                    <td id="15"><div></div></td>
+                    <td id="16"><div></div></td>
+                </tr>
+                <tr>
+                    <td id="20"><div></div></td>
+                    <td id="21"><div></div></td>
+                    <td id="22"><div></div></td>
+                    <td id="23"><div></div></td>
+                    <td id="24"><div></div></td>
+                    <td id="25"><div></div></td>
+                    <td id="26"><div></div></td>
+                </tr>
+                <tr>
+                    <td id="30"><div></div></td>
+                    <td id="31"><div></div></td>
+                    <td id="32"><div></div></td>
+                    <td id="33"><div></div></td>
+                    <td id="34"><div></div></td>
+                    <td id="35"><div></div></td>
+                    <td id="36"><div></div></td>
+                </tr>
+                <tr>
+                    <td id="40"><div></div></td>
+                    <td id="41"><div></div></td>
+                    <td id="42"><div></div></td>
+                    <td id="43"><div></div></td>
+                    <td id="44"><div></div></td>
+                    <td id="45"><div></div></td>
+                    <td id="46"><div></div></td>
+                </tr>
+                <tr>
+                    <td id="50"><div></div></td>
+                    <td id="51"><div></div></td>
+                    <td id="52"><div></div></td>
+                    <td id="53"><div></div></td>
+                    <td id="54"><div></div></td>
+                    <td id="55"><div></div></td>
+                    <td id="56"><div></div></td>
+                </tr>
+                <tr>
+                    <td id="60"><div></div></td>
+                    <td id="61"><div></div></td>
+                    <td id="62"><div></div></td>
+                    <td id="63"><div></div></td>
+                    <td id="64"><div></div></td>
+                    <td id="65"><div></div></td>
+                    <td id="66"><div></div></td>
+                </tr>
+            </table>
+            <div id="interacts">
+                <div id="player1">      
+                    <span>Player 1</span>
+                    <label id="scorep1">
+                        Scores: 0
+                    </label>
+                </div>
+                <div id="textwin">
+                    <div id="sets">
+                        <div id="setp1">
+                            0
+                        </div>
+                        -
+                        <div id="setp2">
+                            0
+                        </div>
+                    </div>
+                    <div id="winner">
+                    </div>
+                </div>
+                <div id="player2">
+                    <span>Player 2</span>    
+                    <label id="scorep2">
+                        Scores: 0
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div class="footer">
+            <button type="button" class="settings-button" onclick="openSettings()">Settings Game</button>
+            <button type="button" class="hof-button" onclick="hofButton()">Hall of Fame</button>
+            <div id="popup-settings">
+                <div id="settings">
+                    <form class="form-settings">
+                        
+                        <h1>Settings</h1>
+    
+                        <label><b>Number of Ships :</b></label>
+                        <br>
+                        <select id="num-ships">
+                            <option value="3">3</option>
+                            <option value="5">5</option>
+                            <option value="7">7</option>
+                        </select>
+                        <br>
+                        <label><b>Number of Sets :</b></label>
+                        <br>
+                        <select id="num-sets">
+                            <option value="3">3</option>
+                            <option value="5">5</option>
+                        </select>
+                        <br>
+                        <br>
+                        <button type="button" class="btn-cancel" onclick="closeSettings()">Cancel</button>
+                        <button type="button" class="btn-confirm" onclick="getSettings()">Confirm</button>
+                    </form>
+                </div>
+            </div>
+            <div id="popup-hof">
+                <div id="hof">
+                    <h1>Hall of Fame</h1>
+                    <table id="hall-of-fame">
+                        <tr>
+                            <th>No. </th>
+                            <th>Player</th>
+                            <th>Scores</th>
+                            <th>Sets</th>
+                        </tr>
+                    </table>
+                    <button type="button" class="close-hof-button" onclick="closeHofButton()">OK</button>
+                </div>
+            </div>
+            <div id="popup-endgame">
+                <div id="endgame">
+                    <div id="text-endgame">
+                        <span style="font-size: 30px; font-weight:bold;">Game is over.</span><br>
+                        <span id="text-winner"></span><br>
+                        <button type="button" class="btn-end" onclick="endGame()">OK</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
