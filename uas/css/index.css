@@ -1,0 +1,252 @@
+*{
+	/* outline: 1px solid red; */
+	font-family: 'DM Sans';}
+
+body{
+	margin:0;
+	font-family: 'DM Sans';
+}
+
+a {
+	text-decoration: none;
+}
+
+.header{
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	flex-direction: row;
+	width: 100%;
+	font-size: 20px;
+	background-color: limegreen;
+	height: 50px;
+}
+
+.header a{
+	color:black;
+}
+
+.logo{
+	height: 50px;
+	margin-left: 10px;
+	/* outline: 1px solid red; */
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.logo a{
+	/* outline: 1px solid red; */
+	padding: 22px 0;
+}
+
+.cart{
+	display: flex;
+	align-items: center; /* center vertically */
+	justify-content: center; /* center horizontally */
+/*	outline: 1px solid red;*/
+	text-align: center;
+	justify-content: center;
+	height: 40px;
+	width: 20%;
+}
+
+.cart a{
+	padding: 15px 0;
+}
+
+.cart-login{
+	display: flex;
+	width: 20%;
+}
+
+.login{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	width: 80%;
+}
+.login a{
+	text-align: center;
+	padding: 6px;
+	padding-left: 45px;
+	padding-right: 45px;
+	position: absolute;
+	background-color:#0a0a23;
+	color: #fff;
+	border:none; 
+	border-radius:18px; 
+	font-size: 75%;
+	max-height: 45px;
+}
+.nav{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-grow: 1;
+}
+.nav a {
+	text-decoration: none;
+	margin: 0 10px;
+	color: #000;
+  }
+
+.nav a div{
+	padding: 9px;
+	border-bottom: 5px solid transparent;
+	transition: border-bottom-color 0.2s ease-in-out;
+	color: gray;
+}	
+
+.nav a.active div{
+	color: black;
+}
+.nav div:hover{
+	border-bottom-color: black;
+}
+.cart img{
+	width: 50px;
+}
+
+.content {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+}
+  
+.products-row {
+	display: grid;
+	grid-template-columns: 33% 34% 33%;
+	width: 100%;
+	margin: 0;
+	padding: 0;
+}
+  
+.products-list {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	position: relative;
+	flex-basis: calc(50% - 12.5px);
+	margin: 0 12.5px;
+	box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.5);
+}
+
+.products-list img {
+	max-width: 100%;
+	height: auto;
+	transition: transform 0.5s ease;
+}
+.products-list:hover img {
+	transform: scale(1.1);
+}
+
+.products-list button {
+	display: block;
+	margin: 10px auto 0;
+}
+.products-list form button[type="submit"] {
+	display: block;
+	position: absolute;
+	bottom: -10px;
+	left: 50%;
+	transform: translateX(-50%);
+	opacity: 0;
+	background-color: transparent;
+	border: none;
+	color: white;
+	padding: 10px 20px;
+	cursor: pointer;
+	transition: all 0.3s ease;
+}
+  
+.products-list:hover form button[type="submit"] {
+	bottom: 10px;
+	opacity: 1;
+	background-color: #000000;
+}
+
+.login-container{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
+
+.login-form{
+	background-color: rgb(225, 225, 225);
+	padding: 30px;
+	padding-top: 0px;
+	border-radius: 30px;
+	margin: auto;
+	position: relative;
+	font-size: 150%;
+}
+
+.login-form h2 {
+  	text-align: center;
+}
+
+.button-container {
+	/* outline: 1px solid red; */
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.button-container input[type="submit"]{
+	
+	padding-left: 40px;
+	padding-right: 40px;
+	color: #fff;
+	background-color: #000;
+	font-size: 100%;
+	border: none;
+	border-radius: 20px;
+	background-image: linear-gradient(to right, #262626, #727272);
+	transition: all 0.3s ease;
+}
+
+.button-container input[type="submit"]:hover {
+	cursor: pointer;
+	font-size: 105%; /* Increase font size by 5% */
+}
+
+.transparent-input {
+	background-color: transparent;
+	border: none;
+	border-bottom: 1px solid black;
+	outline: none;
+	width: 100%;
+}
+.center {
+	margin: 0 auto;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+}
+
+select#category {
+	position: relative;
+	background-color: rgba(255, 255, 255, 0.8);
+	color: #000;
+	border: none;
+	padding: 10px;
+  }
+  
+  select#category option {
+	position: absolute;
+	top: 0;
+	left: 0;
+	opacity: 0;
+	transition: opacity 0.3s ease;
+  }
+  
+  select#category:focus option {
+	opacity: 1;
+  }
+  

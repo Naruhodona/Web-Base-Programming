@@ -1,0 +1,56 @@
+body{
+	margin:0;
+	font-family: sans-serif;
+}
+
+a {
+	text-decoration: none;
+}
+
+.header{
+	display: flex;
+	flex-direction: row;
+	width: 100%;
+	font-size: 20px;
+	background-color: limegreen;
+	justify-content: space-evenly;
+}
+
+.header a{
+	color:black;
+}
+
+.logo{
+	padding: 20px;
+}
+
+.nav{
+	display: flex;
+	flex-direction: row;
+}
+
+.nav div{
+	padding: 20px;
+}
+
+.login{
+	text-align: center;
+	padding-top: 20px;
+}
+
+.nav div:hover{
+	border-bottom-color: black;
+	border-bottom-style: solid;
+	transition-duration: 0.5s;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table, tr, td, th{
+	border-width: 1;
+	border-style: solid;
+	border-color: black;
+	text-align: center;
+}

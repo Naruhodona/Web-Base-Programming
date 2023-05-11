@@ -1,0 +1,99 @@
+
+body{
+	margin:0;
+	font-family: sans-serif;
+}
+
+a {
+	text-decoration: none;
+}
+
+.header{
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	flex-direction: row;
+	width: 100%;
+	font-size: 20px;
+	background-color: limegreen;
+}
+
+.header a{
+	color:black;
+}
+
+.logo{
+	height: 75px;
+	margin-left: 10px;
+	/* outline: 1px solid red; */
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.logo a{
+	/* outline: 1px solid red; */
+	padding: 22px 0;
+}
+
+.cart{
+	text-align: right;
+	width: 20%;
+}
+
+.cart a{	
+	padding: 22px 0;
+}
+
+.cart-login{
+	display: flex;
+	width: 20%;
+}
+
+.login{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	width: 80%;
+}
+.login a{
+	text-align: center;
+}
+.nav{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-grow: 1;
+}
+.nav a {
+	text-decoration: none;
+	margin: 0 10px;
+	color: #000;
+  }
+
+.nav a div{
+	padding: 20px;
+	border-bottom: 5px solid transparent;
+	transition: border-bottom-color 0.2s ease-in-out;
+	color: gray;
+}	
+
+.nav a.active div{
+	color: black;
+}
+.nav div:hover{
+	border-bottom-color: black;
+}
+.cart img{
+	width: 50px;
+}
+table {
+	border-collapse: collapse;
+}
+
+table, tr, td, th{
+	border-width: 1;
+	border-style: solid;
+	border-color: black;
+	text-align: center;
+}
