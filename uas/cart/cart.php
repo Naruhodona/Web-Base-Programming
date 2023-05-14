@@ -13,10 +13,18 @@ if (isset($_SESSION["username"]) && isset($_POST['submitproducts'])){
     $result = mysqli_query($conn, $sql);
     $row = mysqli_fetch_assoc($result);
     $products_id = $row['products_id'];
-    $sql = "INSERT INTO cart(cart_id, products_id, quantity) values('{$_SESSION['user_id']}c', '$products_id', 1)";
-    $result = mysqli_query($conn, $sql);
-    if (!$result) {
-        echo "Error: " . mysqli_error($conn);
+    $query = "SELECT * FROM cart where cart_id='{$_SESSION['user_id']}c' and products_id='$products_id'";
+    $result = mysqli_query($conn, $query);
+    $result_products_id = mysqli_num_rows($result);
+    if($result_products_id > 0){
+        $data = mysqli_fetch_assoc($result);
+        $quantity = $data['quantity'];
+        $quantity += 1;
+        $sql = "UPDATE cart set quantity=$quantity where cart_id='{$_SESSION['user_id']}c' and products_id='$products_id'";
+        $result = mysqli_query($conn, $sql);
+    } else {
+        $sql = "INSERT INTO cart(cart_id, products_id, quantity) values('{$_SESSION['user_id']}c', '$products_id', 1)";
+        $result = mysqli_query($conn, $sql);
     }
 }
 ?>
@@ -50,8 +58,16 @@ if (isset($_SESSION["username"]) && isset($_POST['submitproducts'])){
             <a href="">
                 <div>ABOUT</div>
             </a>
+            <a href="../profile/profile.php">
+                <div>PROFILE</div>
+            </a>
         </div>
         <div class="cart-login">
+            <div class="cart">
+                <a href="cart/cart.php">
+                    <img src="../images/cart.png">
+                </a>
+            </div>
             <div class="login">
                 <?php if (isset($_SESSION["username"])) { ?>
                     <a href="../logout/logout.php"><?php echo $_SESSION['username']; ?> | LOGOUT</a>
@@ -101,11 +117,7 @@ if (isset($_SESSION["username"]) && isset($_POST['submitproducts'])){
                         $no++;
                         $sum += $subtotal;
                     }
-                } else {
-                    echo "<tr><td colspan='7'>Tidak ada data.</td></tr>";
-                }
             ?>
-            
                 <tr>
                     <td colspan="5" style="text-align: center;">Total</td>
                     <td>
@@ -118,6 +130,13 @@ if (isset($_SESSION["username"]) && isset($_POST['submitproducts'])){
                 <tr>
                     <td colspan="7" style="text-align: center;"><a href="clearcart.php?cart_id=<?php echo $_SESSION['user_id'].'c'; ?>">Clear Cart</a></td>
                 </tr>
+            <?php
+                } else {
+                    echo "<tr><td colspan='7'>Tidak ada data.</td></tr>";
+                }
+            ?>
+            
+                
             </tbody>
         </table>
         </form>

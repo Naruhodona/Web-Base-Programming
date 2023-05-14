@@ -32,6 +32,26 @@ a {
 .nav div{
 	padding: 20px;
 }
+.cart{
+	display: flex;
+	align-items: center; /* center vertically */
+	justify-content: center; /* center horizontally */
+/*	outline: 1px solid red;*/
+	text-align: center;
+	padding: 10px 0;
+	justify-content: center;
+	height: 40px;
+	width: 20%;
+}
+
+.cart a{
+	padding: 15px 0;
+}
+
+.cart-login{
+	display: flex;
+	width: 20%;
+}
 
 .login{
 	text-align: center;
@@ -43,7 +63,9 @@ a {
 	border-bottom-style: solid;
 	transition-duration: 0.5s;
 }
-
+.cart img{
+	width: 50px;
+}
 table {
 	border-collapse: collapse;
 }

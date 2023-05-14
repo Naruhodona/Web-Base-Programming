@@ -9,7 +9,7 @@ if(isset($_POST['cart_submit'])){
 	$result = mysqli_query($conn, $query);
 	$rows = mysqli_num_rows($result);
 	$trans_id = $rows+1;
-	$sql = "INSERT INTO transaction(transaction_id, user_id, cart_paid_id, total_price, transaction_date) values('t{$trans_id}{$cart_id}', '$user_id', 'cp{$trans_id}{$cart_id}', '$total', '$transaction_date')";
+	$sql = "INSERT INTO transaction(transaction_id, user_id, cart_paid_id, total_price, transaction_date, status) values('t{$trans_id}{$cart_id}', '$user_id', 'cp{$trans_id}{$cart_id}', '$total', '$transaction_date','ordered')";
 	$result = mysqli_query($conn, $sql);
 
 	$sql = "SELECT * FROM cart where cart_id='$cart_id'";

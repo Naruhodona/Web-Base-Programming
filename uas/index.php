@@ -53,7 +53,7 @@ session_start();
     <div class="center">
         <h2>Category:</h2>
         <select id="category">
-            <option>-- Select Category --</option>
+            <option value="" selected disabled hidden>-- Select Category --</option>
             <option value="all">All</option>
             <option value="skincare">Skincare</option>
             <option value="dietary supplement">Dietary Supplement</option>
@@ -66,30 +66,33 @@ session_start();
     <div class="content">
         <div class="products-row">
             <div class="products-list">
+                <h2>BIODERMA</h2>
                 <div>
                     <img src="images/product_01.png">
                 </div>
                 <form method="post" action="cart/cart.php">
                     <input type="text" name="products" value="bioderma" hidden>
-                    <button type="submit" name="submitproducts">BUY</button>
+                    <button type="submit" name="submitproducts">BUY<br><b>Rp. 50000</b></button>
                 </form>
             </div>
             <div class="products-list">
+                <h2>CHANCAPIEDRA</h2>
                 <div>
                     <img src="images/product_02.png">
                 </div>
                 <form method="post" action="cart/cart.php">
                     <input type="text" name="products" value="chancapiedra" hidden>
-                    <button type="submit" name="submitproducts">BUY</button>
+                    <button type="submit" name="submitproducts">BUY<br><b>Rp. 40000</b></button>
                 </form>
             </div>
             <div class="products-list">
+                <h2>UMCKA COLD CARE</h2>
                 <div>
                     <img src="images/product_03.png">
                 </div>
                 <form method="post" action="cart/cart.php">
-                    <input type="text" name="products" value="bioderma" hidden>
-                    <button type="submit" name="submitproducts">BUY</button>
+                    <input type="text" name="products" value="umcka cold care" hidden>
+                    <button type="submit" name="submitproducts">BUY<br><b>Rp. 100000</b></button>
                 </form>
             </div>
         </div>
