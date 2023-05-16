@@ -1,0 +1,104 @@
+body{
+	margin:0;
+	font-family: sans-serif;
+}
+
+a {
+	text-decoration: none;
+}
+
+.header{
+	display: flex;
+	flex-direction: row;
+	width: 100%;
+	font-size: 20px;
+	background-color: limegreen;
+	justify-content: space-evenly;
+}
+
+.header a{
+	color:black;
+}
+
+.logo{
+	padding: 20px;
+}
+
+.nav{
+	display: flex;
+	flex-direction: row;
+}
+
+.nav div{
+	padding: 20px;
+}
+.cart{
+	display: flex;
+	align-items: center; /* center vertically */
+	justify-content: center; /* center horizontally */
+/*	outline: 1px solid red;*/
+	text-align: center;
+	padding: 10px 0;
+	justify-content: center;
+	height: 40px;
+	width: 20%;
+}
+
+.cart a{
+	padding: 15px 0;
+}
+
+.cart-login{
+	display: flex;
+	width: 20%;
+}
+
+.login{
+	text-align: center;
+	padding-top: 20px;
+}
+
+.nav div:hover{
+	border-bottom-color: black;
+	border-bottom-style: solid;
+	transition-duration: 0.5s;
+}
+.cart img{
+	width: 50px;
+}
+
+.form-box{
+	border-width: 1px;
+	border-style: solid;
+	border-color: rgba(128, 128, 128, 0.25);
+	padding: 20px;
+}
+
+form {
+	display: grid;
+	grid-template-columns: 25% 25%;
+	grid-gap: 25px;
+}
+th{
+	font-weight: bold;
+	text-align: left;
+	padding: 10px;
+}
+td{
+	border-top-style: solid;
+	border-color: rgba(128, 128, 128, 0.25);
+	border-width: 1px;
+	padding: 10px;
+}
+table{
+	width: 100%;
+}
+
+button[type=submit]{
+	width: 100%;
+	cursor: pointer;
+}
+
+label img{
+	width: 30%;
+}
