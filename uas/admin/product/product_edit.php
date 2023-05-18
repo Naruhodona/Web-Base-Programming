@@ -10,7 +10,7 @@
   
 	include "../../connection.php";
 	
-	$query = "select products_name, price, image,category FROM products WHERE products_id = '$id_input';";
+	$query = "select products_name, price, image,category, stock FROM products WHERE products_id = '$id_input';";
 	$result = mysqli_query($conn, $query);
 	if ($result){
 		$row = mysqli_fetch_row($result);
@@ -38,16 +38,20 @@
 			<input name="produk" type="text" size="30" maxlenght="25" value="<?php echo $row[0];?>"> <br/><br/>
 		<strong> Harga: </strong><br/>
 			<input name="harga" type="text" size="30" maxlenght="25" value="<?php echo $row[1];?>"> <br/><br/>
+		<strong> Stok: </strong><br/>
+			<input name="stok" type="number" size="30" maxlenght="25" value="<?php echo $row[4];?>"> <br/><br/>
 		<strong> Link Gambar: </strong><br/>
 			<input name="image" type="text" size="30" maxlenght="25" value="<?php echo $row[2];?>"> <br/><br/>
 		<strong> Kategori: </strong><br/>
-		<select name="kategori">
+			<input name="kategori" type="text" size="30" maxlenght="25" value="<?php echo $row[3];?>"> <br/><br/>
+		<!-- <select name="kategori">
     		<?php
-				foreach ($categories as $category) {
-					echo '<option value="' . $category . '">' . $category . '</option>';
-				}
-			?> <br/><br/>
+				// foreach ($categories as $category) {
+				// 	echo '<option value="' . $category . '">' . $category . '</option>';}
+				?> 
+				<br/><br/> -->
 		<input type="submit" name="btnSubmit" value ="Save">
 	</form>
+	<a href="product_manage.php">Back</a>
 </body>
-</html>   
+</html>

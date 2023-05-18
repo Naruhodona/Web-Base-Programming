@@ -16,6 +16,18 @@ session_start();
 			height:50px;
 		}
 	</style>
+	<script>
+		function confirmDelete(event) {
+      	// Display a confirmation dialog
+      	var confirmation = confirm("Are you sure you want to DELETE this product?");
+
+		// If the user clicks "Cancel" or selects "Decline"
+		if (!confirmation) {
+			// Prevent the default link behavior
+			event.preventDefault();
+		}
+    }
+	</script>
 	
 </head>
 <h2>Inventory</h2>
@@ -39,7 +51,7 @@ if ($result){
 		<th width="100">image</th>
 		<th width="100">nama produk</th>
 		<th width="100">harga</th>
-		 <th width="100">stok</th><!--Kasih panah atas bawah untuk nambah atau kurangin stok dengan mudah dan tambah tombol untuk save-->
+		 <th width="100">stok</th>
 		<th width="100">kategori</th>
 		<th colspan="2" class="center" width="100">Action</th>		
 	</tr>
@@ -65,7 +77,7 @@ if ($result){
 		<td><?php echo $kategori;?></td>
 		<td>
             <a href ="product_edit.php?id=<?php echo $id_produk;?>">Edit</a>
-		    <a href ="delete.php?id=<?php echo $id_produk;?>">Delete</a>
+		    <a href ="delete.php?id=<?php echo $id_produk;?>" onclick="confirmDelete(event)">Delete</a>
 			</td>
 		</tr>
     <?php 
@@ -74,7 +86,7 @@ if ($result){
 	 ?>
     </table></div>
 	</br>
-	<a href ="form_insert.html">Add New Product</a>
+	<a href ="product_insert.html">Add New Product</a>
 	</form>
 	<a href="../admin.php">Back</a>
 	 <?php
