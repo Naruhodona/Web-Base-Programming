@@ -1,6 +1,14 @@
+<?php
+session_start();
+	if (!isset($_SESSION["username"])) {
+    header("Location: ../adminlogin.php");
+    exit();
+}
+?>
+
 <html>
 <head>
-	<title> Input data </title>
+	<title>Manage Inventory</title>
     <link type="text/css" rel="stylesheet" href="">
 	<style>
 		.img-tiny{
@@ -10,7 +18,7 @@
 	</style>
 	
 </head>
-<h2>Product Management</h2>
+<h2>Inventory</h2>
 <?php
 
 
@@ -56,7 +64,7 @@ if ($result){
 		<td><?php echo $stok;?></td>
 		<td><?php echo $kategori;?></td>
 		<td>
-            <a href ="form_update.php?id=<?php echo $id_produk;?>">Edit</a>
+            <a href ="product_edit.php?id=<?php echo $id_produk;?>">Edit</a>
 		    <a href ="delete.php?id=<?php echo $id_produk;?>">Delete</a>
 			</td>
 		</tr>
@@ -66,8 +74,9 @@ if ($result){
 	 ?>
     </table></div>
 	</br>
-	<a href ="form_insert.html">Add New Data</a>
+	<a href ="form_insert.html">Add New Product</a>
 	</form>
+	<a href="../admin.php">Back</a>
 	 <?php
     mysqli_free_result($result);
  }
