@@ -23,9 +23,8 @@
 	<a href="adminlogout.php">Logout</a>
 	<div class="content">
         <div>
-            All Transaction
             <?php
-            $sql = "SELECT transaction.transaction_date, account.username, transaction.total_price  FROM transaction INNER JOIN account ON transaction.user_id = account.user_id";
+            $sql = "SELECT transaction.transaction_id, transaction.transaction_date, account.username, transaction.total_price, transaction.status  FROM transaction INNER JOIN account ON transaction.user_id = account.user_id";
             $result = mysqli_query($conn, $sql);
             ?>
             <table border="1">
@@ -33,6 +32,8 @@
                     <th>Transaction Date</th>
                     <th>Username</th>
                     <th>Spend</th>
+                    <th>Status</th>
+                    <th>Change to Delivered</th>
                 </tr>
                 <?php
                 $sum = 0;
@@ -46,21 +47,29 @@
                     <td><?php echo $row['transaction_date']; ?></td>
                     <td><?php echo $row['username']; ?></td>
                     <td><?php echo $row['total_price']; ?></td>
+                    <td><?php echo $row['status']; ?></td>
+                <?php
+                	if($row['status'] == 'ordered'){
+                		echo "<td><a href='changedelivered.php?transaction_id={$row['transaction_id']}'>Change</a></td>";
+                	} else {
+                		echo "<td></td>";
+                	}
+                ?>
                 </tr>
                 <?php
                     $sum += $row['total_price'];
                     }
                 }else {
-                    echo "<tr><td colspan='3'>Tidak ada data.</td></tr>";
+                    echo "<tr><td colspan='4'>Tidak ada data.</td></tr>";
                 }
                 ?>
                 <tr>
                     <td colspan="2">Total</td>
                     <td><b><?php echo $sum; ?></b></td>
+                    <td colspan="2" style="background-color: black;"></td>
                 </tr>
             </table>
         </div>
-        <a href="../admin.php">Back</a>
     </div>
 </body>
 </html>

@@ -64,7 +64,7 @@ if (isset($_SESSION["username"]) && isset($_POST['submitproducts'])){
         </div>
         <div class="cart-login">
             <div class="cart">
-                <a href="cart/cart.php">
+                <a href="cart.php">
                     <img src="../images/cart.png">
                 </a>
             </div>
