@@ -26,12 +26,11 @@ if (!isset($_SESSION["username"])) {
       },
       dataType: 'json', 
       success: function(data) {
-        var productsHtml = '<option value="" selected disabled hidden>-- Select Products --</option>';
-        // $.each(data, function(index, product)
+        var productsHtml = '<option value="" selected disabled hidden>-- Select Category --</option>';
         for(let i = 0; i < data.length; i++) {
-          productsHtml += '<option value="'+data[i].products_id+'">'+data[i].products_name.toUpperCase()+'</option>';
+          productsHtml += '<option value="'+data[i].category+'">'+data[i].category.toUpperCase()+'</option>';
         };
-        $('#products-option').html(productsHtml);
+        $('#category-option').html(productsHtml);
       },
       error: function(xhr, status, error) {
         console.error(xhr.responseText);
@@ -45,7 +44,7 @@ if (!isset($_SESSION["username"])) {
 <h1>Report Sales Product per Month</h1>
 <form method="POST" action="">
 	<span>Products :</span>
-	<select id="products-option" name="products-option">
+	<select id="category-option" name="category-option">
 
 	</select>
 	<span>Month from :</span>
@@ -53,19 +52,19 @@ if (!isset($_SESSION["username"])) {
 	<span>Until :</span>
 	<input type="month" name="end_date" id="end_date">
 
-	<input type="submit" name="submit_date_product" value="Go">
+	<input type="submit" name="submit_date_category" value="Go">
 </form>
 <table>
 	<tr>
-		<th>Product's Name</th>
+		<th>Category Product</th>
 		<th>Sold</th>
 		<th>Month</th>
 		<th>Year</th>
 	</tr>
 
 <?php
-if(isset($_POST['submit_date_product'])){
-	$products_id = $_POST['products-option'];
+if(isset($_POST['submit_date_category'])){
+	$category = $_POST['category-option'];
 	$start_date = $_POST['start_date'];
 	$end_date = $_POST['end_date'];
 	$start_date_parse = date_parse_from_format('Y-m', $start_date);
@@ -74,13 +73,13 @@ if(isset($_POST['submit_date_product'])){
 	$end_month = (int)$end_date_parse['month'];
 	$start_year = (int)$start_date_parse['year'];
 	$end_year = (int)$end_date_parse['year'];
-	$query = "select products.products_name, month(paid_date) as month, year(paid_date) as year, sum(cart_paid.quantity) as sold from cart_paid inner join products on cart_paid.products_id = products.products_id where cart_paid.products_id='$products_id' and month(cart_paid.paid_date) between $start_month and $end_month and year(cart_paid.paid_date) between $start_year and $end_year group by month";
+	$query = "select products.category, month(paid_date) as month, year(paid_date) as year, sum(cart_paid.quantity * products.price) as total_earnings from cart_paid inner join products on cart_paid.products_id = products.products_id where products.category='$category' and month(cart_paid.paid_date) between $start_month and $end_month and year(cart_paid.paid_date) between $start_year and $end_year group by month";
 	$result = mysqli_query($conn, $query);
 	while($row = mysqli_fetch_assoc($result)){
 ?>
 	<tr>
-		<td><?php echo $row['products_name']; ?></td>
-		<td><?php echo $row['sold']; ?></td>
+		<td><?php echo $row['category']; ?></td>
+		<td><?php echo $row['total_earnings']; ?></td>
 		<td><?php echo $row['month']; ?></td>
 		<td><?php echo $row['year']; ?></td>
 	</tr>
