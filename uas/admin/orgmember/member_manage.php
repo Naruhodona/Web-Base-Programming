@@ -36,7 +36,6 @@ if ($result){
 
         <th width="30">ID</th>
 		<th width="100">username</th>
-		<th width="100">password</th>
 		<th colspan="2" class="center" width="100">Action</th>		
 	</tr>
     <?php
@@ -47,12 +46,10 @@ if ($result){
 
         $user_id = $row[0];
 		$username = $row[1];
-		$password = $row[2];
 
 	    ?>
         <td><?php echo $user_id;?></td>
 		<td><?php echo $username;?></td>
-		<td><?php echo $password;?></td>
 		<td>
             <a href ="delete_member.php?id=<?php echo $user_id;?>">Delete</a>
 			</td>
