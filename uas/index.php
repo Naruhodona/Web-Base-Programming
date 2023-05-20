@@ -9,7 +9,6 @@ session_start();
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Katalog</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="css/index.css">
 </head>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -23,7 +22,7 @@ session_start();
             <a href="index.php" class="active">
                 <div>HOME</div>
             </a>
-            <a href="">
+            <a href="store/store.php">
                 <div>STORE</div>
             </a>
             <a href="">
@@ -50,53 +49,46 @@ session_start();
             </div>
         </div>
     </div>
-    <div class="center">
-        <h2>Category:</h2>
-        <select id="category">
-            <option value="" selected disabled hidden>-- Select Category --</option>
-            <option value="all">All</option>
-            <option value="skincare">Skincare</option>
-            <option value="dietary supplement">Dietary Supplement</option>
-            <option value="herbal drink">Herbal Drink</option>
-            <option value="spray">Spray</option>
-            <option value="analgesic">Analgesic</option>
-        </select>
-    </div>
-    <hr>
-    <div class="content">
-        <div class="products-row">
-            <div class="products-list">
-                <h2>BIODERMA</h2>
-                <div>
-                    <img src="images/product_01.png">
+
+    <div class="wrapper">
+        <header>
+            <img src="images/hero_1.jpg" class="background">
+            <h1 class="title">Welcome to FKS Pharmacy!</h1>
+        </header>
+        <section>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Et nam tempore ullam culpa accusamus, ipsam aspernatur pariatur natus nisi eveniet temporibus, quisquam corrupti fugit quasi assumenda repellendus! Quas ab deleniti voluptatum delectus distinctio dolore, tempore sint quibusdam ipsum ut blanditiis vero officia nesciunt magni minima facilis quae, consectetur error obcaecati. Ipsam perferendis sit dolores distinctio accusamus vero cumque modi autem aperiam nemo dolore neque unde repellendus repudiandae quisquam eos, suscipit, expedita totam omnis dolorum laborum atque nulla beatae. Illo, tempora expedita! Tenetur iusto nobis magnam incidunt accusamus repudiandae eligendi id, nemo ea ducimus magni exercitationem sapiente. Tempore eaque nemo laboriosam!
+            <hr>
+            <div class="content">
+                <div class="products-row">
+                    <div class="products-list">
+                        <div>
+                            <img src="images/product_01.png">
+                        </div>
+                        <form method="post" action="cart/cart.php">
+                            <input type="text" name="products" value="bioderma" hidden>
+                            <button type="submit">BUY</button>
+                        </form>
+                    </div>
+                    <div class="products-list">
+                        <div>
+                            <img src="images/product_02.png">
+                        </div>
+                        <form method="post" action="cart/cart.php">
+                            <input type="text" name="products" value="chancapiedra" hidden>
+                            <button type="submit">BUY</button>
+                        </form>
+                    </div>
+                    <div class="products-list">
+                        <div>
+                            <img src="images/product_03.png">
+                        </div>
+                        <form method="post" action="cart/cart.php">
+                            <input type="text" name="products" value="bioderma" hidden>
+                            <button type="submit">BUY</button>
+                        </form>
+                    </div>
                 </div>
-                <form method="post" action="cart/cart.php">
-                    <input type="text" name="products" value="bioderma" hidden>
-                    <button type="submit" name="submitproducts">BUY<br><b>Rp. 50000</b></button>
-                </form>
-            </div>
-            <div class="products-list">
-                <h2>CHANCAPIEDRA</h2>
-                <div>
-                    <img src="images/product_02.png">
-                </div>
-                <form method="post" action="cart/cart.php">
-                    <input type="text" name="products" value="chancapiedra" hidden>
-                    <button type="submit" name="submitproducts">BUY<br><b>Rp. 40000</b></button>
-                </form>
-            </div>
-            <div class="products-list">
-                <h2>UMCKA COLD CARE</h2>
-                <div>
-                    <img src="images/product_03.png">
-                </div>
-                <form method="post" action="cart/cart.php">
-                    <input type="text" name="products" value="umcka cold care" hidden>
-                    <button type="submit" name="submitproducts">BUY<br><b>Rp. 100000</b></button>
-                </form>
-            </div>
-        </div>
+        </section>
 
     </div>
-</body>
-</html>
+    </div>

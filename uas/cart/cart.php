@@ -52,7 +52,7 @@ if (isset($_SESSION["username"]) && isset($_POST['submitproducts'])){
             <a href="../index.php">
                 <div>HOME</div>
             </a>
-            <a href="">
+            <a href="../store/store.php">
                 <div>STORE</div>
             </a>
             <a href="">
@@ -142,7 +142,7 @@ if (isset($_SESSION["username"]) && isset($_POST['submitproducts'])){
         </form>
         <?php
 
-        if (isset($_GET['pesan'])){
+        if (isset($_GET['message'])){
             echo "<h1>Thank you for your order!!!</h1>";
         }
         ?>

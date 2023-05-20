@@ -1,3 +1,12 @@
+:root{
+	--bg:rgb(255, 255, 255);
+	--dark-text: rgb(26, 35, 35);
+	--light-text: rgb(240,235,235);
+	--primary-button: rgb(50, 205, 50);
+	--secondary-button: rgb(225, 132, 225);
+	--accent: rgb(118, 203, 203);
+}
+
 *{
 	/* outline: 1px solid red; */
 	font-family: 'DM Sans';}
@@ -18,12 +27,12 @@ a {
 	flex-direction: row;
 	width: 100%;
 	font-size: 20px;
-	background-color: limegreen;
+	background-color: var(--bg);
 	height: 50px;
 }
 
 .header a{
-	color:black;
+	color:var(--dark-text);
 }
 
 .logo{
@@ -43,7 +52,7 @@ a {
 	display: flex;
 	align-items: center; /* center vertically */
 	justify-content: center; /* center horizontally */
-/*	outline: 1px solid red;*/
+	/* outline: 1px solid red; */
 	text-align: center;
 	justify-content: center;
 	height: 40px;
@@ -73,7 +82,7 @@ a {
 	padding-right: 45px;
 	position: absolute;
 	background-color:#0a0a23;
-	color: #fff;
+	color: var(--light-text);
 	border:none; 
 	border-radius:18px; 
 	font-size: 75%;
@@ -88,7 +97,7 @@ a {
 .nav a {
 	text-decoration: none;
 	margin: 0 10px;
-	color: #000;
+	color: var(--dark-text);
   }
 
 .nav a div{
@@ -99,10 +108,10 @@ a {
 }	
 
 .nav a.active div{
-	color: black;
+	color: var(--dark-text);
 }
 .nav div:hover{
-	border-bottom-color: black;
+	border-bottom-color: var(--dark-text);
 }
 .cart img{
 	width: 50px;
@@ -116,7 +125,7 @@ a {
   
 .products-row {
 	display: grid;
-	grid-template-columns: 33% 34% 33%;
+	grid-template-columns: 33% 33% 33%;
 	width: 100%;
 	margin: 0;
 	padding: 0;
@@ -129,7 +138,7 @@ a {
 	position: relative;
 	flex-basis: calc(50% - 12.5px);
 	margin: 12.5px 12.5px;
-	box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.5);
+	box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
 }
 
 .products-list img {
@@ -154,7 +163,7 @@ a {
 	opacity: 0;
 	background-color: transparent;
 	border: none;
-	color: white;
+	color: var(--light-text);
 	padding: 10px 20px;
 	cursor: pointer;
 	transition: all 0.3s ease;
@@ -163,7 +172,7 @@ a {
 .products-list:hover form button[type="submit"] {
 	bottom: 10px;
 	opacity: 1;
-	background-color: #000000;
+	background-color: var(--dark-text);
 }
 
 .login-container{
@@ -178,7 +187,7 @@ a {
 }
 
 .login-form{
-	background-color: rgb(225, 225, 225);
+	background-color: var(--bg);
 	padding: 30px;
 	padding-top: 0px;
 	border-radius: 30px;
@@ -202,8 +211,8 @@ a {
 	
 	padding-left: 40px;
 	padding-right: 40px;
-	color: #fff;
-	background-color: #000;
+	color: var(--bg);
+	background-color: var(--dark-text);
 	font-size: 100%;
 	border: none;
 	border-radius: 20px;
@@ -219,7 +228,7 @@ a {
 .transparent-input {
 	background-color: transparent;
 	border: none;
-	border-bottom: 1px solid black;
+	border-bottom: 1px solid var(--dark-text);
 	outline: none;
 	width: 100%;
 }
@@ -233,20 +242,60 @@ a {
 select#category {
 	position: relative;
 	background-color: rgba(255, 255, 255, 0.8);
-	color: #000;
+	color: var(--dark-text);
 	border: none;
 	padding: 10px;
   }
   
-  select#category option {
+select#category option {
 	position: absolute;
 	top: 0;
 	left: 0;
 	opacity: 0;
 	transition: opacity 0.3s ease;
-  }
+}
   
-  select#category:focus option {
+select#category:focus option {
 	opacity: 1;
-  }
+}
   
+.background{
+	position: absolute;
+	height: 100%;
+	width: 100%;
+	object-fit: cover;
+	width: 100vw;
+	height: auto;
+	z-index: -1;
+	transform: translateZ(-10px) scale(2);
+}
+
+
+.title{
+	font-size: 5rem;
+	color: var(--light-text);
+	text-shadow: 0 0 5px black;
+}
+.wrapper{
+	height: 100vh;
+	overflow-y: auto;
+	scrollbar-width: none;
+	overflow-x: hidden;
+	perspective: 10px;
+}
+
+.wrapper header{
+	position: relative;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100%;
+	transform-style: preserve-3d;
+	z-index: -1;
+}
+
+.wrapper section{
+	background-color:var(--bg);
+	border-radius: 30px;
+	padding:30px;
+}

@@ -19,6 +19,7 @@
 <body>
 	<a href="orgmember/member_manage.php">Organize User Accounts</a>
 	<a href="history/report_transaction.php">Report Transaction</a>
+	<a href="product/product_manage.php">Manage Products</a>
 	<a href="adminlogout.php">Logout</a>
 </body>
 </html>

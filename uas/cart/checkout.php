@@ -2,7 +2,7 @@
 session_start();
 include "../connection.php";
 
-if (!isset($_SESSION["username"]) || !isset($_POST['cart_submit'])){
+if ((!isset($_SESSION["username"]) && !isset($_POST['cart_submit'])) || (!isset($_SESSION["username"]) && !isset($_GET['message']))){
     header("Location: ../login/login.php");
     exit();
 }
@@ -95,6 +95,7 @@ if (isset($_SESSION["username"]) && isset($_POST['cart_submit'])){
                         <?php
                             $sql = "SELECT products.products_name, products.price, cart.quantity FROM cart INNER JOIN products ON cart.products_id = products.products_id WHERE cart_id='{$_SESSION['user_id']}c'";
                             $result = mysqli_query($conn, $sql);
+                            $sum = 0;
                             while($row = mysqli_fetch_assoc($result)){
                                 $subtotal = $row['price']*$row['quantity'];
                         ?>
@@ -103,21 +104,27 @@ if (isset($_SESSION["username"]) && isset($_POST['cart_submit'])){
                             <td><?php echo $subtotal; ?></td>
                         </tr>
                         <?php
+                            $sum += $subtotal;
                             }
                         ?>
                         <tr>
                             <td><b>Order Total</b></td>
-                            <td><b><?php echo $total; ?><b></td>
+                            <td><b><?php echo $sum; ?><b></td>
                         </tr>
                     </table>
-                    <input type="text" name='total' id="total" value='<?php echo $total; ?>' hidden>
+                    <input type="text" name='total' id="total" value='<?php echo $sum; ?>' hidden>
                     <button type="submit" name="final_order">PLACE ORDER</button>
                 </div>
 
             </div>
-
             
         </form>
     </div>
+    <?php
+
+        if (isset($_GET['message'])){
+            echo "<h2>Your order on <i>{$_GET['products_name']}</i> surpassed our stock {$_GET['stock']} left.</h2>";
+        }
+    ?>
 
 </body>
