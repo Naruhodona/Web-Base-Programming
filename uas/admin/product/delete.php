@@ -1,7 +1,7 @@
 <?php
 $id_input =$_GET["id"];
 
-include "../connection.php";
+include "../../connection.php";
 
 if (mysqli_connect_errno()) {
    echo "Koneksi ke server gagal dilakukan.";
@@ -19,5 +19,4 @@ if ($num > 0) {
 } else {
    echo "Penghapusan data gagal dilakukan.";
 }
-
 ?>   
