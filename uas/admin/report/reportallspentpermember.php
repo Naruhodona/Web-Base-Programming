@@ -12,14 +12,14 @@ if (!isset($_SESSION["username"])) {
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title></title>
+    <title>Total Member Spent Report</title>
     <link rel="stylesheet" href="../css/profile.css">
 </head>
 <body>
     <h1>Report Total Spent per Member</h1>
     <form method="POST" action="">
     <span>Status Transaction</span>
-    <select id="status" name="status">
+    <select required id="status" name="status">
         <option value="" disabled selected hidden> -- Select Status -- </option>
         <option value="all">All</option>
         <option value="delivered">Delivered</option>
@@ -27,9 +27,9 @@ if (!isset($_SESSION["username"])) {
     </select>
     <br>
     <span>Date from :</span>
-    <input type="date" name="start_date" id="start_date">
+    <input required type="date" name="start_date" id="start_date">
     <span>Until :</span>
-    <input type="date" name="end_date" id="end_date">
+    <input required type="date" name="end_date" id="end_date">
 
     <input type="submit" name="submit_date_member" value="Go">
     </form>

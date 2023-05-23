@@ -8,7 +8,7 @@ session_start();
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Katalog</title>
+    <title>FKS_Farma Home</title>
     <link rel="stylesheet" href="css/index.css">
 </head>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -56,7 +56,7 @@ session_start();
             <h1 class="title">Welcome to FKS Pharmacy!</h1>
         </header>
         <section>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Et nam tempore ullam culpa accusamus, ipsam aspernatur pariatur natus nisi eveniet temporibus, quisquam corrupti fugit quasi assumenda repellendus! Quas ab deleniti voluptatum delectus distinctio dolore, tempore sint quibusdam ipsum ut blanditiis vero officia nesciunt magni minima facilis quae, consectetur error obcaecati. Ipsam perferendis sit dolores distinctio accusamus vero cumque modi autem aperiam nemo dolore neque unde repellendus repudiandae quisquam eos, suscipit, expedita totam omnis dolorum laborum atque nulla beatae. Illo, tempora expedita! Tenetur iusto nobis magnam incidunt accusamus repudiandae eligendi id, nemo ea ducimus magni exercitationem sapiente. Tempore eaque nemo laboriosam!
+        <h1>Paling Populer</h1> 
             <hr>
             <div class="content">
                 <div class="products-row">

@@ -18,12 +18,12 @@ if (!isset($_SESSION["username"])) {
 <body>
     <div class="content">
         <div>
-            <h1>Prduct Earnings</h1>
+            <h1>Product Earnings</h1>
             <form method="POST" action="">
                 <span>Date from :</span>
-                <input type="date" name="start_date" id="start_date">
+                <input required type="date" name="start_date" id="start_date">
                 <span>Until :</span>
-                <input type="date" name="end_date" id="end_date">
+                <input required type="date" name="end_date" id="end_date">
                 <input type="submit" name="submit_date" value="Go">
             </form>
             <?php

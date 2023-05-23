@@ -7,12 +7,18 @@ if (!isset($_SESSION["username"])) {
     exit();
 }
 ?>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Product Sales Report Period</title>
+</head>
+
 <h1>Report Sales Product per Period</h1>
 <form method="POST" action="">
 	<span>Date from :</span>
-	<input type="date" name="start_date" id="start_date">
+	<input required type="date" name="start_date" id="start_date">
 	<span>Until :</span>
-	<input type="date" name="end_date" id="end_date">
+	<input required type="date" name="end_date" id="end_date">
 	<input type="submit" name="submit_date" value="Go">
 </form>
 <table>

@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans&display=swap');
 :root{
 	--bg:rgb(255, 255, 255);
 	--dark-text: rgb(26, 35, 35);
@@ -5,6 +6,7 @@
 	--primary-button: rgb(50, 205, 50);
 	--secondary-button: rgb(225, 132, 225);
 	--accent: rgb(118, 203, 203);
+	
 }
 
 *{

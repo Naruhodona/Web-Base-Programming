@@ -14,7 +14,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title></title>
+	<title>Admin Page</title>
 </head>
 <body>
 	<a href="orgmember/member_manage.php">Organize User Accounts</a>

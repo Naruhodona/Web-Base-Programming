@@ -32,7 +32,7 @@ $pass = $row['pass'];
             <a href="../index.php">
                 <div>HOME</div>
             </a>
-            <a href="">
+            <a href="../store/store.php">
                 <div>STORE</div>
             </a>
             <a href="">

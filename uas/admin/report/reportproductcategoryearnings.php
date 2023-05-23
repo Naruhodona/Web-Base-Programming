@@ -12,7 +12,7 @@ if (!isset($_SESSION["username"])) {
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title></title>
+	<title>Category Earnings</title>
 </head>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
@@ -44,13 +44,13 @@ if (!isset($_SESSION["username"])) {
 <h1>Report Sales Product per Month</h1>
 <form method="POST" action="">
 	<span>Products :</span>
-	<select id="category-option" name="category-option">
+	<select required id="category-option" name="category-option">
 
 	</select>
 	<span>Month from :</span>
-	<input type="month" name="start_date" id="start_date">
+	<input required type="month" name="start_date" id="start_date">
 	<span>Until :</span>
-	<input type="month" name="end_date" id="end_date">
+	<input required type="month" name="end_date" id="end_date">
 
 	<input type="submit" name="submit_date_category" value="Go">
 </form>
