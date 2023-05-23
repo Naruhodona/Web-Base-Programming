@@ -25,7 +25,7 @@ session_start();
             <a href="store/store.php">
                 <div>STORE</div>
             </a>
-            <a href="">
+            <a href="about/about.php">
                 <div>ABOUT</div>
             </a>
             <?php if (isset($_SESSION["user_id"])) { ?>

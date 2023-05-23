@@ -43,7 +43,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         
         $_SESSION['user_id'] = $new_user_id;
         $_SESSION['username'] = $username;
-        header("Location: ../index.php");
+        header("Location: login.php");
     }
 }
 ?>

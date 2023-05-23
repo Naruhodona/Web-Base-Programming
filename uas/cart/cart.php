@@ -55,7 +55,7 @@ if (isset($_SESSION["username"]) && isset($_POST['submitproducts'])){
             <a href="../store/store.php" class="active">
                 <div>STORE</div>
             </a>
-            <a href="">
+            <a href="../about/about.php">
                 <div>ABOUT</div>
             </a>
             <a href="../profile/profile.php">

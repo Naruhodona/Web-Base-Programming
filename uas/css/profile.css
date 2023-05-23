@@ -12,6 +12,13 @@ select {
 	outline: none;
 	border: none;
 }
+.content{
+	justify-content: center;
+}
+
+.content h1{
+	text-align: center;
+}
 
 .header{
 	display: flex;
@@ -94,6 +101,9 @@ select {
 }
 table {
 	border-collapse: collapse;
+	margin-left: auto;
+	margin-right: auto;
+	font-size: 150%;
 }
 
 table, tr, td, th{
@@ -101,4 +111,5 @@ table, tr, td, th{
 	border-style: solid;
 	border-color: black;
 	text-align: center;
+	padding: 10px;
 }
