@@ -28,9 +28,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
     <link rel="stylesheet" href="../css/index.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@700&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/48638eddb5.js" crossorigin="anonymous"></script>
     <style>
         body::before {
@@ -52,17 +49,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <h2>Login</h2>
             <br>
             <form method="POST" action="">
-            <label style="text-align: left;">Username:</label>
-            <br>
-            <input type="text" name="username" required class="transparent-input fa" placeholder="&#xf007; Enter your username..." style="font-family:'DM Sans', FontAwesome" data-fa-processed>
-            <br><br>
-            <label style="margin-left: 0px;">Password:</label>
-            <br>
-            <input type="password" name="pass" required class="transparent-input fa" placeholder="&#xf023; Enter your password..." style="font-family:'DM Sans', FontAwesome" data-fa-processed>
-            <br><br>
-            <div class="button-container">
-                <input type="submit" value="Login">
-            </div>
+                <label style="text-align: left;">Username:</label>
+                <br>
+                <input type="text" name="username" required class="transparent-input fa" placeholder="&#xf007; Enter your username..." style="font-family:'DM Sans', FontAwesome" data-fa-processed>
+                <br><br>
+                <label style="margin-left: 0px;">Password:</label>
+                <br>
+                <input type="password" name="pass" required class="transparent-input fa" placeholder="&#xf023; Enter your password..." style="font-family:'DM Sans', FontAwesome" data-fa-processed>
+                <br><br>
+                <div class="button-container">
+                    <input type="submit" value="Login">
+                </div>
             </form>
             <?php if(isset($error)) { ?>
             <p class="error"><?php echo $error; ?></p>

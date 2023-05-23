@@ -14,13 +14,32 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title></title>
+    <link rel="stylesheet" href="../css/index.css">
+    <link rel="stylesheet" href="../css/admin.css">
+	<title>Admin FKS Farma</title>
 </head>
 <body>
-	<a href="orgmember/member_manage.php">Organize User Accounts</a>
-	<a href="history/report_transaction.php">Report Transaction</a>
-	<a href="product/product_manage.php">Manage Products</a>
-	<a href="adminlogout.php">Logout</a>
+    <div class="header">
+            <div class="logo">
+                <a href="admin.php">Admin FKS Farma</a>
+            </div>
+            <div class="nav">    
+                <a href="orgmember/member_manage.php">
+                    <div>Organize User Accounts</div> 
+                </a>
+                <a href="report/reportpages.php">
+                    <div>Reports</div>
+                </a>
+                <a href="product/product_manage.php">
+                    <div>Manage Products</div>
+                </a>
+            </div>
+            <div class="button-container">
+                    <a href="adminlogout.php">
+                        <div>Logout</div>
+                    </a>
+            </div>
+    </div>
 	<div class="content">
         <div>
             <?php

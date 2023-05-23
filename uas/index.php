@@ -66,7 +66,7 @@ session_start();
                         </div>
                         <form method="post" action="cart/cart.php">
                             <input type="text" name="products" value="bioderma" hidden>
-                            <button type="submit">BUY</button>
+                            <button type="submit" name="submitproducts">BUY</button>
                         </form>
                     </div>
                     <div class="products-list">
@@ -75,7 +75,7 @@ session_start();
                         </div>
                         <form method="post" action="cart/cart.php">
                             <input type="text" name="products" value="chancapiedra" hidden>
-                            <button type="submit">BUY</button>
+                            <button type="submit" name="submitproducts">BUY</button>
                         </form>
                     </div>
                     <div class="products-list">
@@ -83,8 +83,8 @@ session_start();
                             <img src="images/product_03.png">
                         </div>
                         <form method="post" action="cart/cart.php">
-                            <input type="text" name="products" value="bioderma" hidden>
-                            <button type="submit">BUY</button>
+                            <input type="text" name="products" value="umcka cold care" hidden>
+                            <button type="submit" name="submitproducts">BUY</button>
                         </form>
                     </div>
                 </div>

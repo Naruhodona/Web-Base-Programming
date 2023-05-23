@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans&display=swap');
 :root{
 	--bg:rgb(255, 255, 255);
 	--dark-text: rgb(26, 35, 35);
@@ -28,7 +29,7 @@ a {
 	flex-direction: row;
 	width: 100%;
 	font-size: 20px;
-	background-color: var(--bg);
+	background-color: #C0C0C0;
 	height: 50px;
 }
 
@@ -127,8 +128,12 @@ table {
 	margin: auto;
 }
 
+table th{
+	background-color: #32CD32;
+}
+
 table, tr, td, th{
-	border-width: 1;
+	border-width: 2px;
 	border-style: solid;
 	border-color: black;
 	text-align: center;

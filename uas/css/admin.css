@@ -1,3 +1,4 @@
+
 table {
 	border-collapse: collapse;
 	margin-left: auto;
@@ -33,4 +34,14 @@ h2,a{
 }
 .centered form input[type="submit"]{
 	width: auto;
+}
+.centered{
+	display: flex;
+	margin: 20px;
+}
+.centered a{
+	margin: 20px;
+	padding: 20px;
+	background-color: Black;
+	color: white;
 }

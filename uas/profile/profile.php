@@ -21,27 +21,29 @@ $pass = $row['pass'];
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Katalog</title>
-	<link rel="stylesheet" href="../css/profile.css">
+    <link type="text/css" rel="stylesheet" href="../css/index.css">
+    <link type="text/css" rel="stylesheet" href="../css/admin.css">
+
 </head>
 <body>
 	<div class="header">
         <div class="logo">
-            <a href="">FKS Farma</a>
+            <a href="../index.php">FKS Farma</a>
         </div>
         <div class="nav">    
             <a href="../index.php">
                 <div>HOME</div>
             </a>
-            <a href="">
+            <a href="../store/store.php">
                 <div>STORE</div>
             </a>
-            <a href="">
+            <a href="../about/about.php">
                 <div>ABOUT</div>
             </a>
             <?php if (isset($_SESSION["user_id"])) { ?>
                 <a href="profile.php" class="active"><div>PROFILE</div></a>
             <?php } else { ?>
-                <a href="login/login.php" class="active"><div>PROFILE</div></a>
+                <a href="../login/login.php" class="active"><div>PROFILE</div></a>
             <?php } ?>
         </div>
         <div class="cart-login">
