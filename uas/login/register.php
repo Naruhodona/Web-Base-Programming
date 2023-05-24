@@ -17,7 +17,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $error = "Passwords do not match.";
     } else {
         $first_letter = mb_substr($username,0,1);
-
+        $first_letter = strtolower($first_letter);
         $sql = "select * from account where user_id like '{$first_letter}%'";
         $result = mysqli_query($conn,$sql);
         $row = mysqli_num_rows($result);
