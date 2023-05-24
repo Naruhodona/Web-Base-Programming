@@ -12,10 +12,32 @@ if (!isset($_SESSION["username"])) {
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Total Member Spent Report</title>
+    <title>Member Spent Report</title>
     <link rel="stylesheet" href="../css/profile.css">
 </head>
 <body>
+    <div class="header">
+                <div class="logo">
+                    <a href="../admin.php">Admin FKS Farma</a>
+                </div>
+                <div class="nav">    
+                    <a href="../orgmember/member_manage.php">
+                        <div>Organize User Accounts</div> 
+                    </a>
+                    <a href="reportpages.php" class="active">
+                        <div>Reports</div>
+                    </a>
+                    <a href="../product/product_manage.php">
+                        <div>Manage Products</div>
+                    </a>
+                </div>
+                <div class="button-container">
+                    <a href="../adminlogout.php">
+                        <div>Logout</div>
+                    </a>
+                </div>
+            </div>
+    <div style="text-align: center; margin-bottom: 20px;">
     <h1>Report Total Spent per Member</h1>
     <form method="POST" action="">
     <span>Status Transaction</span>
@@ -25,7 +47,7 @@ if (!isset($_SESSION["username"])) {
         <option value="delivered">Delivered</option>
         <option value="ordered">Ordered</option>
     </select>
-    <br>
+    <br><br>
     <span>Date from :</span>
     <input required type="date" name="start_date" id="start_date">
     <span>Until :</span>
@@ -33,6 +55,10 @@ if (!isset($_SESSION["username"])) {
 
     <input type="submit" name="submit_date_member" value="Go">
     </form>
+    </div>
+    <?php
+    if(isset($_POST['submit_date_member'])){
+    ?>
     <table>
     <tr>
         <th>Username</th>
@@ -60,6 +86,7 @@ if (!isset($_SESSION["username"])) {
 <?php
 
     }
+}
 }
 ?>
 </table>

@@ -12,10 +12,32 @@ if (!isset($_SESSION["username"])) {
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link type="text/css" rel="stylesheet" href="../../css/index.css">
+    <link type="text/css" rel="stylesheet" href="../../css/admin.css">
     <title>Product Earnings Report</title>
-    <link rel="stylesheet" href="../css/profile.css">
 </head>
 <body>
+    <div class="header">
+                <div class="logo">
+                    <a href="../admin.php">Admin FKS Farma</a>
+                </div>
+                <div class="nav">    
+                    <a href="../orgmember/member_manage.php">
+                        <div>Organize User Accounts</div> 
+                    </a>
+                    <a href="reportpages.php" class="active">
+                        <div>Reports</div>
+                    </a>
+                    <a href="../product/product_manage.php">
+                        <div>Manage Products</div>
+                    </a>
+                </div>
+                <div class="button-container">
+                    <a href="../adminlogout.php">
+                        <div>Logout</div>
+                    </a>
+                </div>
+            </div>
     <div class="content">
         <div>
             <h1>Product Earnings</h1>
@@ -26,6 +48,7 @@ if (!isset($_SESSION["username"])) {
                 <input required type="date" name="end_date" id="end_date">
                 <input type="submit" name="submit_date" value="Go">
             </form>
+        </div>
             <?php
             if(isset($_POST['submit_date'])){
                 $start_date = $_POST['start_date'];
@@ -56,8 +79,6 @@ if (!isset($_SESSION["username"])) {
                     $sum += $row['total'];
                     }
                 }
-                }else {
-                    echo "<tr><td colspan='3'>Tidak ada data.</td></tr>";
                 }
                 if (isset($_POST['submit_date'])){
                 ?>
@@ -69,7 +90,6 @@ if (!isset($_SESSION["username"])) {
                 <?php }?>
             </table>
         </div>
-        <a href="../admin.php">Back</a>
     </div>
 </body>
 </html>

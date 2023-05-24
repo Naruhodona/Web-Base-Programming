@@ -1,10 +1,11 @@
 $(document).ready(function() {
-  $('input[name="quantity"]').on('change', function() {
+  $('input[name="quantity"]').on('focus', function() {
     var quantity = $(this).val();
     var products_name = $(this).data('products-name');
+    console.log(quantity);
     $.ajax({
       type: "POST",
-      url: "../cart/updatecart.php",
+      url: "updatecart.php",
       data: {
         quantity: quantity,
         products_name: products_name
@@ -31,4 +32,18 @@ function updateSubtotal(quantity, id){
 	document.getElementById('subtotal_'+elementid).value = subtotal;
 	document.getElementById('total').value = total;
 
+}
+
+function decreaseInput(id){
+  var input_old = document.getElementById('quantity_'+id).value;
+  var input_new = parseInt(input_old) - 1;
+  document.getElementById('quantity_'+id).value = input_new;
+  document.getElementById('quantity_'+id).focus();
+}
+
+function increaseInput(id){
+  var input_old = document.getElementById('quantity_'+id).value;
+  var input_new = parseInt(input_old) + 1;
+  document.getElementById('quantity_'+id).value = input_new;
+  document.getElementById('quantity_'+id).focus();
 }

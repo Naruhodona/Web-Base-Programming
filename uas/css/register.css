@@ -1,0 +1,24 @@
+.register-container{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
+
+.register-form{
+	background-color: var(--bg);
+	padding: 30px;
+	padding-top: 0px;
+	border-radius: 30px;
+	margin: auto;
+	position: relative;
+	font-size: 150%;
+}
+
+.register-form h2 {
+  	text-align: center;
+}

@@ -52,10 +52,10 @@ if (isset($_SESSION["username"]) && isset($_POST['submitproducts'])){
             <a href="../index.php">
                 <div>HOME</div>
             </a>
-            <a href="../store/store.php">
+            <a href="../store/store.php" class="active">
                 <div>STORE</div>
             </a>
-            <a href="">
+            <a href="../about/about.php">
                 <div>ABOUT</div>
             </a>
             <a href="../profile/profile.php">
@@ -82,7 +82,7 @@ if (isset($_SESSION["username"]) && isset($_POST['submitproducts'])){
         $sql = "SELECT products.image, products.products_name, products.price, cart.quantity FROM cart INNER JOIN products ON cart.products_id = products.products_id WHERE cart_id='{$_SESSION['user_id']}c'";
         $result = mysqli_query($conn, $sql);
         ?>
-        <form method="POST" action="checkout.php">
+        
         <table>
             <thead>
                 <tr>
@@ -109,7 +109,7 @@ if (isset($_SESSION["username"]) && isset($_POST['submitproducts'])){
                     <td><img src="<?php echo $row['image']; ?>" width="50%"></td>
                     <td><?php echo $row['products_name']; ?></td>
                     <td id="price_<?php echo $no; ?>"><?php echo $row['price']; ?></td>
-                    <td><input type="number" min='1' name='quantity' id='quantity' value="<?php echo $row['quantity']; ?>" onchange="updateSubtotal(this.value, '<?php echo $no; ?>')" data-products-name="<?php echo $row['products_name']; ?>" style="text-align: center;"></td>
+                    <td><button class="decrement-button" id="decr_<?php echo $no; ?>" onclick="decreaseInput('<?php echo $no; ?>')">-</button><input type="number" min='1' name='quantity' id='quantity_<?php echo $no; ?>' value="<?php echo $row['quantity']; ?>" onfocus="updateSubtotal(this.value, '<?php echo $no; ?>')" data-products-name="<?php echo $row['products_name']; ?>" style="text-align: center;"><button class="increment-button" id="incr_<?php echo $no; ?>" onclick="increaseInput('<?php echo $no; ?>')">+</button></td>
                     <td><input type="text" name='subtotal' id="subtotal_<?php echo $no; ?>" value='<?php echo $subtotal; ?>' readonly style="border: none; text-align: center; outline: none;"></td>
                     <td><a href="deletecart.php?cart_id=<?php echo $_SESSION['user_id'].'c'; ?>&products_name=<?php echo $row['products_name']; ?>">Delete</a></td>
                 </tr>
@@ -118,6 +118,7 @@ if (isset($_SESSION["username"]) && isset($_POST['submitproducts'])){
                         $sum += $subtotal;
                     }
             ?>
+            <form method="POST" action="checkout.php">
                 <tr>
                     <td colspan="5" style="text-align: center;">Total</td>
                     <td>

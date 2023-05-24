@@ -12,7 +12,7 @@ if (!isset($_SESSION["username"])) {
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Product Sales Report Month</title>
+	<title>Report Sales Product per Month</title>
 </head>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
@@ -40,8 +40,28 @@ if (!isset($_SESSION["username"])) {
 });
 </script>
 <body>
-
-
+<div class="header">
+                <div class="logo">
+                    <a href="../admin.php">Admin FKS Farma</a>
+                </div>
+                <div class="nav">    
+                    <a href="../orgmember/member_manage.php">
+                        <div>Organize User Accounts</div> 
+                    </a>
+                    <a href="reportpages.php" class="active">
+                        <div>Reports</div>
+                    </a>
+                    <a href="../product/product_manage.php">
+                        <div>Manage Products</div>
+                    </a>
+                </div>
+                <div class="button-container">
+                    <a href="../adminlogout.php">
+                        <div>Logout</div>
+                    </a>
+                </div>
+            </div>
+<div style="text-align: center; margin-bottom: 20px;">
 <h1>Report Sales Product per Month</h1>
 <form method="POST" action="">
 	<span>Products :</span>
@@ -55,6 +75,12 @@ if (!isset($_SESSION["username"])) {
 
 	<input type="submit" name="submit_date_product" value="Go">
 </form>
+</div>
+<?php
+if(isset($_POST['submit_date_product'])){
+
+
+?>
 <table>
 	<tr>
 		<th>Product's Name</th>
@@ -85,7 +111,7 @@ if(isset($_POST['submit_date_product'])){
 		<td><?php echo $row['year']; ?></td>
 	</tr>
 <?php
-
+		}
 	}
 }
 ?>

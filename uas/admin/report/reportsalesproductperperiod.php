@@ -7,12 +7,39 @@ if (!isset($_SESSION["username"])) {
     exit();
 }
 ?>
+<!DOCTYPE html>
+<html>
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Product Sales Report Period</title>
+	<link type="text/css" rel="stylesheet" href="../../css/index.css">
+    <link type="text/css" rel="stylesheet" href="../../css/admin.css">
+	<title>Report Sales Product per Period</title>
 </head>
+<body>
 
+<div class="header">
+                <div class="logo">
+                    <a href="../admin.php">Admin FKS Farma</a>
+                </div>
+                <div class="nav">    
+                    <a href="../orgmember/member_manage.php">
+                        <div>Organize User Accounts</div> 
+                    </a>
+                    <a href="reportpages.php" class="active">
+                        <div>Reports</div>
+                    </a>
+                    <a href="../product/product_manage.php">
+                        <div>Manage Products</div>
+                    </a>
+                </div>
+                <div class="button-container">
+                    <a href="../adminlogout.php">
+                        <div>Logout</div>
+                    </a>
+                </div>
+            </div>
+<div style="text-align: center; margin-bottom: 20px;">
 <h1>Report Sales Product per Period</h1>
 <form method="POST" action="">
 	<span>Date from :</span>
@@ -21,6 +48,10 @@ if (!isset($_SESSION["username"])) {
 	<input required type="date" name="end_date" id="end_date">
 	<input type="submit" name="submit_date" value="Go">
 </form>
+</div>
+<?php
+if(isset($_POST['submit_date'])){
+?>
 <table>
 	<tr>
 		<th>Product's Name</th>
@@ -43,5 +74,8 @@ if(isset($_POST['submit_date'])){
 
 	}
 }
+}
 ?>
 </table>
+</body>
+</html>
