@@ -1,6 +1,6 @@
 <?php
 session_start();
-
+include "connection.php";
 ?>
 <!DOCTYPE html>
 <html>
@@ -16,7 +16,7 @@ session_start();
 <body>
     <div class="header">
         <div class="logo">
-            <a href="">FKS Farma</a>
+            <a href="index.php">FKS Farma</a>
         </div>
         <div class="nav">    
             <a href="index.php" class="active">
@@ -56,20 +56,34 @@ session_start();
             <h1 class="title">Welcome to FKS Pharmacy!</h1>
         </header>
         <section>
-        <h1>Paling Populer</h1> 
+            <p>
+At FKS Pharmacy, we are dedicated to providing exceptional healthcare services and reliable access to high-quality medications. As a trusted online pharmacy, we prioritize the well-being and convenience of our customers. Our goal is to make healthcare accessible, affordable, and personalized, ensuring that everyone receives the care they deserve.
+
+We offer a comprehensive range of pharmaceutical products, including prescription medications, over-the-counter drugs, and health supplements. Our experienced team of licensed pharmacists is committed to delivering accurate medication information, counseling, and personalized recommendations to support your health needs.
+
+In addition to our wide selection of medications, we provide convenient online ordering and fast, discreet shipping to your doorstep. Our user-friendly website allows you to browse and purchase products with ease, ensuring a seamless and secure shopping experience.
+            </p>
             <hr>
+            <h1 style="text-align: center;">There are 3 top product seller at FKS Pharmacy</h1>
             <div class="content">
                 <div class="products-row">
+                    <?php
+                $query = "select products.products_name, products.price, products.image, sum(cart_paid.quantity) as sold from cart_paid inner join products on cart_paid.products_id = products.products_id group by products.products_name order by sold desc limit 3";
+                $result = mysqli_query($conn, $query);
+                while($row = mysqli_fetch_assoc($result)){
+                    
+                ?>
                     <div class="products-list">
+                        <h1><?php echo $row['products_name']; ?></h1>
                         <div>
-                            <img src="images/product_01.png">
+                            <img src="<?php echo substr($row['image'], 3); ?>">
                         </div>
                         <form method="post" action="cart/cart.php">
-                            <input type="text" name="products" value="bioderma" hidden>
-                            <button type="submit" name="submitproducts">BUY</button>
+                            <input type="text" name="products" value="<?php echo $row['products_name']; ?>" hidden>
+                            <button type="submit" name="submitproducts">BUY<br><b>Rp. <?php echo $row['price']; ?></b></button>
                         </form>
                     </div>
-                    <div class="products-list">
+                    <!-- <div class="products-list">
                         <div>
                             <img src="images/product_02.png">
                         </div>
@@ -86,7 +100,10 @@ session_start();
                             <input type="text" name="products" value="umcka cold care" hidden>
                             <button type="submit" name="submitproducts">BUY</button>
                         </form>
-                    </div>
+                    </div> -->
+                    <?php
+                    }
+                    ?>
                 </div>
         </section>
 

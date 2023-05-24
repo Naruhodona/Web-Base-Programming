@@ -62,7 +62,7 @@ if(isset($_POST['submit_date'])){
 if(isset($_POST['submit_date'])){
 	$start_date = $_POST['start_date'];
 	$end_date = $_POST['end_date'];
-	$query = "select products.products_name, sum(cart_paid.quantity) as sold from cart_paid inner join products on cart_paid.products_id = products.products_id where cart_paid.paid_date between '$start_date' and '$end_date' group by products.products_name ";
+	$query = "select products.products_name, sum(cart_paid.quantity) as sold from cart_paid inner join products on cart_paid.products_id = products.products_id where cart_paid.paid_date between '$start_date' and '$end_date' group by products.products_name";
 	$result = mysqli_query($conn, $query);
 	while($row = mysqli_fetch_assoc($result)){
 ?>

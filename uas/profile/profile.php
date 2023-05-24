@@ -62,8 +62,13 @@ $pass = $row['pass'];
         </div>
     </div>
     <div class="content">
+        <!-- <div>
+            <input type="password" name="user_pass">
+            <button></button>
+            <input type="password" name="change_pass">
+        </div> -->
     	<div>
-    		History Transaction
+    		<h1>Your Transaction History</h1>
     		<?php
     		$sql = "SELECT transaction_date, total_price FROM transaction WHERE user_id='$user_id'";
        		$result = mysqli_query($conn, $sql);

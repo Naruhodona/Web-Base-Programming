@@ -55,6 +55,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register</title>
     <link rel="stylesheet" href="../css/register.css">
+    <link rel="stylesheet" href="../css/index.css">
     <script src="https://kit.fontawesome.com/48638eddb5.js" crossorigin="anonymous"></script>
     <style>
         body::before {
@@ -79,11 +80,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <label style="text-align: left;">Username:</label>
                 <br>
                 <input type="text" name="username" required class="transparent-input fa" placeholder="&#xf007; Enter your username..." style="font-family:'DM Sans', FontAwesome" data-fa-processed>
-                    
-                <label style="text-align: left;">Password:</label>
+                <br>
+                <label style="text-align: left;">Password:</label><br>
                 <input type="password" name="pass" required class="transparent-input fa" placeholder="&#xf023; Enter your password..." style="font-family:'DM Sans', FontAwesome" data-fa-processed>
-
-                <label style="text-align: left;">Confirm Password:</label>
+                <br>
+                <label style="text-align: left;">Confirm Password:</label><br>
                 <input type="password" name="confirm_pass" required class="transparent-input fa" placeholder="&#xf023; Enter your password again..." style="font-family:'DM Sans', FontAwesome" data-fa-processed>
                 <br><br>
                 <div class="button-container">

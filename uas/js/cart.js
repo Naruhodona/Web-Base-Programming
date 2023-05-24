@@ -2,7 +2,6 @@ $(document).ready(function() {
   $('input[name="quantity"]').on('focus', function() {
     var quantity = $(this).val();
     var products_name = $(this).data('products-name');
-    console.log(quantity);
     $.ajax({
       type: "POST",
       url: "updatecart.php",
@@ -46,4 +45,9 @@ function increaseInput(id){
   var input_new = parseInt(input_old) + 1;
   document.getElementById('quantity_'+id).value = input_new;
   document.getElementById('quantity_'+id).focus();
+}
+
+function closePopup(){
+  document.getElementById('pop-up').style.display = "none";
+  document.getElementById('pop-up-content').style.display = "none";
 }
