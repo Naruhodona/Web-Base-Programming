@@ -12,6 +12,8 @@ if (!isset($_SESSION["username"])) {
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link type="text/css" rel="stylesheet" href="../../css/index.css">
+  <link type="text/css" rel="stylesheet" href="../../css/admin.css">
 	<title>Report Sales Product per Month</title>
 </head>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>

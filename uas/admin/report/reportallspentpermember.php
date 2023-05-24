@@ -10,10 +10,11 @@ if (!isset($_SESSION["username"])) {
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link type="text/css" rel="stylesheet" href="../../css/index.css">
+    <link type="text/css" rel="stylesheet" href="../../css/admin.css">
     <title>Member Spent Report</title>
-    <link rel="stylesheet" href="../css/profile.css">
 </head>
 <body>
     <div class="header">

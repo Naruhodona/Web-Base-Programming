@@ -38,10 +38,10 @@ if (!isset($_SESSION["username"])) {
                     </a>
                 </div>
             </div>
-    <div class="content">
+    <div>
         <div>
-            <h1>Product Earnings</h1>
-            <form method="POST" action="">
+            <h1 style="text-align: center;">Report Product Earnings</h1>
+            <form method="POST" action="" style="text-align: center;">
                 <span>Date from :</span>
                 <input required type="date" name="start_date" id="start_date">
                 <span>Until :</span>

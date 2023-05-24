@@ -12,6 +12,8 @@ if (!isset($_SESSION["username"])) {
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link type="text/css" rel="stylesheet" href="../../css/index.css">
+  <link type="text/css" rel="stylesheet" href="../../css/admin.css">
 	<title>Product's Category Earnings Report</title>
 </head>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -61,7 +63,7 @@ if (!isset($_SESSION["username"])) {
                 </div>
             </div>
 <div style="text-align: center; margin-bottom: 20px;">
-<h1>Report Sales Product per Month</h1>
+<h1>Report Earnings Category per Month</h1>
 <form method="POST" action="">
 	<span>Products :</span>
 	<select required id="category-option" name="category-option">
@@ -81,7 +83,7 @@ if(isset($_POST['submit_date_category'])){
 <table>
 	<tr>
 		<th>Category Product</th>
-		<th>Sold</th>
+		<th>Total Earnings</th>
 		<th>Month</th>
 		<th>Year</th>
 	</tr>

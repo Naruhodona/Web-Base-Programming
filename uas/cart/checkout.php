@@ -21,7 +21,7 @@ if (isset($_SESSION["username"]) && isset($_POST['cart_submit'])){
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Katalog</title>
+    <title>Checkout</title>
     <link rel="stylesheet" href="../css/checkout.css">
     <link rel="stylesheet" href="../css/index.css">
 </head>

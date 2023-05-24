@@ -50,7 +50,9 @@ session_start();
 				<input type="submit" name="btnSubmit" value ="Save">
 			</div>
 		</form>
+		
 	</div>
-
+	
+	<a href="product_manage.php">Back</a>
 </body>
 </html>   

@@ -20,7 +20,7 @@ $pass = $row['pass'];
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Katalog</title>
+	<title>Profile</title>
     <link type="text/css" rel="stylesheet" href="../css/index.css">
     <link type="text/css" rel="stylesheet" href="../css/admin.css">
 
