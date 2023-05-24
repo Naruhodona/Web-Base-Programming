@@ -38,12 +38,20 @@ if (isset($_SESSION["username"]) && isset($_POST['submitproducts'])){
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Katalog</title>
     <link rel="stylesheet" href="../css/cart.css">
+    <link rel="stylesheet" href="../css/index.css">
 </head>
 
 <!-- script ajax -->
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="../js/cart.js"></script>
 <body>
+    <?php
+
+        if (isset($_GET['message'])){
+            echo "<div id='pop-up'><div id='pop-up-content'><h1>Thank you for your order!!!</h1>
+            <br><button onclick='closePopup()' style='background-color:black; color:white; padding: 10px 30px; border: none; cursor: pointer; border-radius: 10px;'>OK</button></div></div>";
+        }
+    ?>
     <div class="header">
         <div class="logo">
             <a href="../index.php">FKS Farma</a>
@@ -87,10 +95,10 @@ if (isset($_SESSION["username"]) && isset($_POST['submitproducts'])){
             <thead>
                 <tr>
                     <th>No.</th>
-                    <th>Gambar Produk</th>
-                    <th>Nama Produk</th>
-                    <th>Harga</th>
-                    <th>QTY</th>
+                    <th>Product's Image</th>
+                    <th>Product's Name</th>
+                    <th>Price (Rupiah)</th>
+                    <th>Quantity</th>
                     <th>Subtotal</th>
                     <th>Action</th>
                 </tr>
@@ -110,7 +118,7 @@ if (isset($_SESSION["username"]) && isset($_POST['submitproducts'])){
                     <td><?php echo $row['products_name']; ?></td>
                     <td id="price_<?php echo $no; ?>"><?php echo $row['price']; ?></td>
                     <td><button class="decrement-button" id="decr_<?php echo $no; ?>" onclick="decreaseInput('<?php echo $no; ?>')">-</button><input type="number" min='1' name='quantity' id='quantity_<?php echo $no; ?>' value="<?php echo $row['quantity']; ?>" onfocus="updateSubtotal(this.value, '<?php echo $no; ?>')" data-products-name="<?php echo $row['products_name']; ?>" style="text-align: center;"><button class="increment-button" id="incr_<?php echo $no; ?>" onclick="increaseInput('<?php echo $no; ?>')">+</button></td>
-                    <td><input type="text" name='subtotal' id="subtotal_<?php echo $no; ?>" value='<?php echo $subtotal; ?>' readonly style="border: none; text-align: center; outline: none;"></td>
+                    <td><span>Rp. </span><input type="text" name='subtotal' id="subtotal_<?php echo $no; ?>" value='<?php echo $subtotal; ?>' readonly style="border: none; text-align: center; outline: none;"></td>
                     <td><a href="deletecart.php?cart_id=<?php echo $_SESSION['user_id'].'c'; ?>&products_name=<?php echo $row['products_name']; ?>">Delete</a></td>
                 </tr>
             <?php
@@ -122,7 +130,7 @@ if (isset($_SESSION["username"]) && isset($_POST['submitproducts'])){
                 <tr>
                     <td colspan="5" style="text-align: center;">Total</td>
                     <td>
-                        <input type="text" name='total' id="total" value='<?php echo $sum; ?>' readonly style="border: none; text-align: center; outline: none;">
+                        <span>Rp. </span><input type="text" name='total' id="total" value='<?php echo $sum; ?>' readonly style="border: none; text-align: center; outline: none;">
                         <input type="text" name="user_id" value="<?php echo $_SESSION['user_id']; ?>" hidden>
                         <input type="text" name="cart_id" value="<?php echo $_SESSION['user_id'].'c'; ?>" hidden>
                     </td>
@@ -141,12 +149,7 @@ if (isset($_SESSION["username"]) && isset($_POST['submitproducts'])){
             </tbody>
         </table>
         </form>
-        <?php
-
-        if (isset($_GET['message'])){
-            echo "<h1>Thank you for your order!!!</h1>";
-        }
-        ?>
+        
     </div>
 </body>
 </html>

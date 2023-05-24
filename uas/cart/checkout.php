@@ -23,12 +23,23 @@ if (isset($_SESSION["username"]) && isset($_POST['cart_submit'])){
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Katalog</title>
     <link rel="stylesheet" href="../css/checkout.css">
+    <link rel="stylesheet" href="../css/index.css">
 </head>
 
 <!-- script ajax -->
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script src="../js/cart.js"></script>
+<script>
+function closePopup(){
+  document.getElementById('pop-up').style.display = "none";
+  document.getElementById('pop-up-content').style.display = "none";
+}
+</script>
 <body>
+    <?php
+        if (isset($_GET['message'])){
+            echo "<div id='pop-up'><div id='pop-up-content'><h2>Your order on <i>{$_GET['products_name']}</i> surpassed our stock.<br>Our Stock: {$_GET['stock']} left.</h2> <br><button onclick='closePopup()' style='background-color:black; color:white; padding: 10px 30px; border: none; cursor: pointer; border-radius: 10px;'>OK</button></div></div>";
+        }
+    ?>
     <div class="header">
         <div class="logo">
             <a href="../index.php">FKS Farma</a>
@@ -37,10 +48,10 @@ if (isset($_SESSION["username"]) && isset($_POST['cart_submit'])){
             <a href="../index.php">
                 <div>HOME</div>
             </a>
-            <a href="">
+            <a href="../store/store.php">
                 <div>STORE</div>
             </a>
-            <a href="">
+            <a href="../about/about.php">
                 <div>ABOUT</div>
             </a>
             <a href="../profile/profile.php">
@@ -48,27 +59,32 @@ if (isset($_SESSION["username"]) && isset($_POST['cart_submit'])){
             </a>
         </div>
         <div class="cart-login">
+            <div class="cart">
+                <a href="cart.php">
+                    <img src="../images/cart.png">
+                </a>
+            </div>
             <div class="login">
                 <?php if (isset($_SESSION["username"])) { ?>
                     <a href="../logout/logout.php"><?php echo $_SESSION['username']; ?> | LOGOUT</a>
                 <?php } else { ?>
-                    <a href="login/login.php">LOGIN</a>
+                    <a href="login/login.php" style="margin:auto;">LOGIN</a>
                 <?php } ?>
             </div>
         </div>
     </div>
     <div class="content">
         <form method="POST" action="transaction.php">
-            <div>
+            <div class="form">
                 <h1>Billing Details</h1>
                 <div class="form-box">
                     <b>Address Delivery :</b>
                     <br>
-                    <textarea name="address"></textarea>
+                    <textarea name="address" required></textarea>
                     <br>
                     <b>Phone Number :</b>
                     <br>
-                    <input type="text" name="phone_number">
+                    <input type="text" name="phone_number" required>
                     <br>
                     <b>Additional Notes :</b>
                     <br>
@@ -76,15 +92,15 @@ if (isset($_SESSION["username"]) && isset($_POST['cart_submit'])){
                     <b></b>
                     <br>
                     <b>Payment Options :</b><br>
-                    <input type="radio" id="gopay" name="payment" value="gopay">
+                    <input type="radio" id="gopay" name="payment" value="gopay" required>
                     <label for="gopay"><img src="../images/gopay.png"></label><br>
-                    <input type="radio" id="ovo" name="payment" value="ovo">
+                    <input type="radio" id="ovo" name="payment" value="ovo" required>
                     <label for="ovo"><img src="../images/ovo.png"></label><br>
-                    <input type="radio" id="dana" name="payment" value="dana">
+                    <input type="radio" id="dana" name="payment" value="dana" required>
                     <label for="dana"><img src="../images/dana.png"></label>
                 </div>
             </div>
-            <div>
+            <div class="form">
                 <h1>Your Order</h1>
                 <div class="form-box">
                     <table>
@@ -101,7 +117,7 @@ if (isset($_SESSION["username"]) && isset($_POST['cart_submit'])){
                         ?>
                         <tr>
                             <td><?php echo $row['products_name']; ?> x <?php echo $row['quantity']; ?></td>
-                            <td><?php echo $subtotal; ?></td>
+                            <td>Rp. <?php echo $subtotal; ?></td>
                         </tr>
                         <?php
                             $sum += $subtotal;
@@ -109,7 +125,7 @@ if (isset($_SESSION["username"]) && isset($_POST['cart_submit'])){
                         ?>
                         <tr>
                             <td><b>Order Total</b></td>
-                            <td><b><?php echo $sum; ?><b></td>
+                            <td><b>Rp. <?php echo $sum; ?><b></td>
                         </tr>
                     </table>
                     <input type="text" name='total' id="total" value='<?php echo $sum; ?>' hidden>
@@ -120,11 +136,6 @@ if (isset($_SESSION["username"]) && isset($_POST['cart_submit'])){
             
         </form>
     </div>
-    <?php
-
-        if (isset($_GET['message'])){
-            echo "<h2>Your order on <i>{$_GET['products_name']}</i> surpassed our stock {$_GET['stock']} left.</h2>";
-        }
-    ?>
+    
 
 </body>
