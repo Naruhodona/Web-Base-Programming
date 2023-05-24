@@ -45,3 +45,12 @@ h2,a{
 	background-color: Black;
 	color: white;
 }
+
+.content{
+	display: flex;
+	justify-content: space-evenly;
+}
+
+.user-password{
+	margin-top: 20px;
+}

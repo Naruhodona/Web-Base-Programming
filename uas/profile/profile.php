@@ -7,8 +7,14 @@ if (!isset($_SESSION["username"])) {
     exit();
 }
 
+
 $user_id = $_SESSION['user_id'];
 $username = $_SESSION['username'];
+if(isset($_POST['btn_change_pass'])){
+    $new_password = $_POST['change_pass'];
+    $query = "update account set pass='$new_password' where user_id='$user_id'";
+    $result = mysqli_query($conn, $query);
+}
 $sql = "SELECT pass FROM account where user_id='$user_id'";
 $result = mysqli_query($conn, $sql);
 $row = mysqli_fetch_assoc($result);
@@ -23,7 +29,13 @@ $pass = $row['pass'];
 	<title>Katalog</title>
     <link type="text/css" rel="stylesheet" href="../css/index.css">
     <link type="text/css" rel="stylesheet" href="../css/admin.css">
-
+<script>
+    function changePass(){
+        document.getElementById('new_pass').style.display = "block";
+        document.getElementById('change_pass').style.display = "block";
+        document.getElementById('btn_change_pass').style.display = "block";
+    }
+</script>
 </head>
 <body>
 	<div class="header">
@@ -62,12 +74,19 @@ $pass = $row['pass'];
         </div>
     </div>
     <div class="content">
-        <!-- <div>
-            <input type="password" name="user_pass">
-            <button></button>
-            <input type="password" name="change_pass">
-        </div> -->
-    	<div>
+        <div class="user-password">
+            
+            <span>Your Password :</span>
+            <input type="password" name="user_pass" value="<?php echo $pass; ?>" readonly>
+            <button onclick="changePass()">Change Password</button>
+            <br>
+            <form method="POST" action="">
+            <span id="new_pass" style="display:none;">New Password :</span>
+            <input type="password" id="change_pass" name="change_pass" style="display: none;">
+            <input type="submit" id="btn_change_pass" name="btn_change_pass" style="display: none;" value="Change">
+            </form>
+        </div>
+    	<div class="history">
     		<h1>Your Transaction History</h1>
     		<?php
     		$sql = "SELECT transaction_date, total_price FROM transaction WHERE user_id='$user_id'";
